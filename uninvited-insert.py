@@ -189,7 +189,6 @@ if write_table:
 
 	for item in frequencies.most_common():
 		c = item[0]
-		# if debug: sys.stdout.write(str(hex(ord(c))) + " ==> " + str(hex(charset.find(c))) + "  ")
 		
 		if(charset.find(c) == -1):
 			if ord(c) == 0x05 or ord(c) == 0x14 or ord(c) == 0x15:
@@ -199,10 +198,6 @@ if write_table:
 				print "This might be bad news."
 		else:
 			frequency_table.append(charset.find(c))
-
-	# DEBUG
-	#frequency_table = frequency_table_stock
-	#
 
 	print "Frequency table generated."	
 	print "Total length of character set:", len(charset)
@@ -329,9 +324,7 @@ sys.stdout.write("Inserting frequency table...")
 rom.seek(0x1E42F + hdr)
 
 for byte in frequency_table:
-	pass
 	rom.write(chr(byte))
-	#debug
 
 print "done. Wrote", rom.tell() - (0x1E42F + hdr), "bytes."
 
@@ -339,9 +332,7 @@ sys.stdout.write("Inserting tile translation table...")
 rom.seek(0x1DC37 + hdr)
 
 for byte in tiles:
-	pass
 	rom.write(chr(byte))
-	#debug
 
 print "done. Wrote", rom.tell() - (0x1DC37 + hdr), "bytes."
 

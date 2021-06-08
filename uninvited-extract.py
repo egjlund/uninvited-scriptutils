@@ -44,16 +44,14 @@ table = [0x1A, 0x04, 0x13, 0x0E, 0x12, 0x00, 0x08, 0x0D, 0x11, 0x07, 0x0B, 0x14,
 #
 
 charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ _^#_@.-*=:,\"!?;'$()+_0123456789_____%"
-		  #0123456789ABCDEF0123456789ABCDEF012345 6789ABCDEF0123456789ABCDEF
+	  #0123456789ABCDEF0123456789ABCDEF012345 6789ABCDEF0123456789ABCDEF
           #01234567890123456789012345678901234567 89012345678901234567890123
           
 # these are the addresses in memory where the strings are found, read from a table in ROM 
 offsets = []
 
 
-
 f = open(rom_filename, 'rb')
-
 
 base_offset = 0x8010
 
