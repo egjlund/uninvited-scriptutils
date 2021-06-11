@@ -6,6 +6,16 @@ These are Python 2.x script dumping and insertion utilities for working with Uni
 
 These are weirdly written, somewhat specifically suited to Swedish, very poorly documented (you will have to read the awful mess of quick-and-dirty Python code in order to figure out what's happening and how to use them) and by now I've forgotten most of the finer technical details. There is little or no error checking in many parts. You need to edit the source to specify the filename. The programs do *work*, however. Maybe they will be fun to mess around with for someone.  
 
+## How to use
+* Name your ROM image ´uninvited.nes´ and place it in the same directory as the scripts. Make sure to make a backup of the stock ROM beforehand as we will be overwriting it.
+
+* Run ´python uninvited-extract.py´. This will extract the stock script into three different text files, ´uninvited-dumpN.txt´.
+
+* Edit the text files and save them as ´uninvited-dumpN-translated.txt´.
+
+* Run ´python uninvited-insert.py´ to insert the edited script into the ROM. After this, if you have chosen to insert a new frequency table, *you will no longer be able to extract the script back from the ROM. The extractor only works with the stock frequency table for now.*
+
+These are the bare basics. You will need to read and edit the code to do more interesting things like change the character set.
 
 ## Technical notes (incomplete)
 
@@ -31,7 +41,7 @@ C  O  L  O  G  N  E
    
 As an initial exercise before attempting to dump and translate Uninvited, I wrote a script dumper for Shadowgate, thinking that it might serve as a useful exercise -- after all, Shadowgate is already available in Swedish, and comparing the two versions might prove fruitful.
    
-As it turns out, that was a bit of a waste of time -- Uninvited uses a rather different text compression scheme than Shadowgate. Whereas Shadowgate uses a fixed character length of 5 bits for everything except a couple of special 8-bit control characters, thereby achieving upwards of 62,5% compression compared to full bytes, Uninvited is a bit more clever. 
+As it turns out, that was a bit of a waste of time -- Uninvited uses a rather different text compression scheme than Shadowgate. Whereas Shadowgate uses a fixed character length of 5 bits for everything except a couple of special 8-bit control characters, thereby achieving upwards of 62.5% compression compared to full bytes, Uninvited is a bit more clever. 
 
 It uses a Huffman encoding scheme, which enables the 8 most commonly used characters to be encoded using only 4 bits, which then increases to 5, 6 and so forth as rarity increases. This is pretty efficient since this means that for a lot of the text -- English, uppercase-only -- can be packed two letters per byte. 
    
