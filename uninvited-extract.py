@@ -1,6 +1,6 @@
 # encoding: ibm850
 
-import bitio
+from bitio import *
 
 rom_filename = "uninvited.nes"
 
@@ -11,8 +11,7 @@ rom_filename = "uninvited.nes"
 # modified the frequency table.
 #
 
-print "Uninvited script dumper v0.9"
-print "(C) 2016-2021 by Erik Grahn Järlund"
+print "Uninvited script dumper v0.91"
 print
 
 a = raw_input("Include debug info in script (Y/N)? ")

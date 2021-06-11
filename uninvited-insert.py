@@ -4,8 +4,7 @@ import time
 import sys
 import collections
 
-print 'Uninvited script inserter v0.9'
-print '(C) 2016-2021 Erik Grahn Järlund'
+print 'Uninvited script inserter v0.91'
 print
 
 rom_filename = "uninvited.nes"
